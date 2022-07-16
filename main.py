@@ -21,10 +21,10 @@ league_scores = {
 }
 
 division_scores = {
-    "I": 0,
-    "II": 1,
-    "III": 2,
-    "IV": 3,
+    "I": 3,
+    "II": 2,
+    "III": 1,
+    "IV": 0,
 }
 
 errors = open("errors.log", "a")
