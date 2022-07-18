@@ -86,6 +86,7 @@ def analyze_match(match):
     line_to_print = line_to_print + str(participants[0]['win']) + "\n"
     print(line_to_print)
     data.write(line_to_print)
+    data.close()
 
 
     
@@ -123,6 +124,8 @@ while True:
                         match = fetch_api("https://europe.api.riotgames.com/lol/match/v5/matches/" + match_id + "?api_key=" + api_key)
 
                         analyze_match(match)
+                        data = open("data.csv", "a")
+
 
 
 
