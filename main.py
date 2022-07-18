@@ -29,12 +29,16 @@ division_scores = {
 
 errors = open("errors.log", "a")
 data = open("data.csv", "a")
+last_stand = open("last_stand.log", "w")
 
 api_key = sys.argv[1]
 
 division_string = ["I", "II", "III", "IV"]
 league_string = ["IRON", "BRONZE", "SILVER", "GOLD", "PLATINUM", "DIAMOND"]
 page = 1
+
+if sys.argv[2] != "":
+    page = int(sys.argv[2])
 
 def fetch_api(my_query):
     #print(my_query)
@@ -88,6 +92,7 @@ def analyze_match(match):
 
 
 while True:
+    print(page)
     # First I loop through each league
     for league in league_string:
 
@@ -122,6 +127,7 @@ while True:
 
 
     page = page + 1
+    last_stand.write(str(page))
 
 
 
