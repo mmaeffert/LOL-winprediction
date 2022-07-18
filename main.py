@@ -37,8 +37,9 @@ division_string = ["I", "II", "III", "IV"]
 league_string = ["IRON", "BRONZE", "SILVER", "GOLD", "PLATINUM", "DIAMOND"]
 page = 1
 
-if sys.argv[2] != "":
-    page = int(sys.argv[2])
+if len(sys.argv) > 2:
+    if sys.argv[2] != "":
+        page = int(sys.argv[2])
 
 def fetch_api(my_query):
     #print(my_query)
