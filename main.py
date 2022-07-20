@@ -36,10 +36,15 @@ api_key = sys.argv[1]
 division_string = ["I", "II", "III", "IV"]
 league_string = ["IRON", "BRONZE", "SILVER", "GOLD", "PLATINUM", "DIAMOND"]
 page = 1
+current_instance = ""
 
 if len(sys.argv) > 2:
     if sys.argv[2] != "":
         page = int(sys.argv[2])
+
+if len(sys.argv) > 3:
+    if sys.argv[3] != "":
+        current_instance = str(sys.argv[3])
 
 def fetch_api(my_query):
     #print(my_query)
@@ -52,7 +57,9 @@ def fetch_api(my_query):
         response = requests.get(my_query,header_param)
     if response.status_code != 200:
         print("Failed: " + my_query)
+        errors = open("errors" + current_instance + ".log", "a")
         errors.write(my_query + "\n")
+        errors.close()
         return ""
     response_json = response.json()
     #print(response_json)
@@ -85,11 +92,9 @@ def analyze_match(match):
     
     line_to_print = line_to_print + str(participants[0]['win']) + "\n"
     print(line_to_print)
+    data = open("data" + current_instance + ".csv", "a")
     data.write(line_to_print)
     data.close()
-
-
-    
 
 
 
