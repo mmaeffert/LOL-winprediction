@@ -17,7 +17,7 @@ league_scores = {
     "SILVER": 8,
     "GOLD": 12,
     "PLATINUM": 16,
-    "DIAMON": 20
+    "DIAMOND": 20
 }
 
 division_scores = {
