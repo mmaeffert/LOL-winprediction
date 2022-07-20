@@ -97,7 +97,6 @@ def analyze_match(match):
     data.close()
 
 
-
 while True:
     print(page)
     # First I loop through each league
@@ -129,7 +128,6 @@ while True:
                         match = fetch_api("https://europe.api.riotgames.com/lol/match/v5/matches/" + match_id + "?api_key=" + api_key)
 
                         analyze_match(match)
-                        data = open("data.csv", "a")
 
 
 
