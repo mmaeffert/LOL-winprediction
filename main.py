@@ -2,6 +2,8 @@ from pyparsing import line
 import requests
 import time
 import sys
+import sys
+import sys
 
 
 header_param = {
@@ -121,6 +123,8 @@ while True:
 
                     # get matches of this player
                     matches = fetch_api("https://europe.api.riotgames.com/lol/match/v5/matches/by-puuid/" + puuid['puuid'] + "/ids?start=0&count=20&api_key=" + api_key) # Gets the last 20 matches
+                    for match_id in matches:
+                        print(match_id)
 
                     #Go through each match
                     for match_id in matches:
